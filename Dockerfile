@@ -25,6 +25,16 @@ RUN apt-get -y install git
 #RUN ./config --prefix=/usr/local/openssl-1.1.1-stable --openssldir=/usr/local/openssl-1.1.1-stable
 #RUN make install
 
+
+WORKDIR /root
+RUN git clone https://github.com/google/googletest.git 
+RUN cd googletest 
+RUN mkdir build
+RUN cd build
+WORKDIR /root/googletest/build
+RUN cmake ..
+RUN make install && ldconfig
+
 # get and build ACE
 WORKDIR /root
 RUN wget https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_0_0/ACE+TAO-7.0.0.tar.gz
