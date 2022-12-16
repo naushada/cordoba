@@ -33,7 +33,9 @@ VOLUME ["/data/db"]
 WORKDIR /data
 
 # Define default command.
-CMD ["mongod"]
+# CMD ["mongod"]
+
+ENTRYPOINT ["/usr/bin/mongod"]
 
 # Expose ports.
 #   - 27017: process
